@@ -30,31 +30,31 @@
     </tr>
     <tr>
       <td><b>Client Name </b></td>
-      <td>Petko Petkov</td>
+      <td><th:block th:text="${clientName}"></th:block></td>
     </tr>
     <tr>
       <td><b>Client Address </b></td>
-      <td>Partizanska 5, Skopje</td>
+      <td> <th:block th:text="${clientAddress}"></th:block> </td>
     </tr>
     <tr>
       <td><b>Client IP Address</b></td>
-      <td>127.0.0.1</td>
+      <td> <th:block th:text="${clientIP}"></th:block> </td>
     </tr>
     <tr>
       <td><b>Client Browser</b></td>
-      <td>Mozilla</td>
+      <td> <th:block th:text="${clientAgent}"></th:block> </td>
     </tr>
     <tr>
       <td><b>Balloon Color </b></td>
-      <td>Red Balloon</td>
+      <td> <th:block th:text="${balloonColor}"></th:block> </td>
     </tr>
     <tr>
       <td><b>Balloon Size </b></td>
-      <td>Large</td>
+      <td> <th:block th:text="${balloonSize}"></th:block> </td>
     </tr>
   </table>
   <div>
-    <a href="/">Log out</a>
+    <a href="/logout">Log out</a>
   </div>
 
 

@@ -14,15 +14,16 @@
 <header>
     <h1>Welcome to our Balloon Shop App</h1>
 </header>
-<main>
-    <h2>Choose balloon color:</h2>
+<h2>Choose balloon color:</h2>
+<form th:method="POST" th:action="@{/}">
+
     <input type="radio" name="color" value="Red Balloon"> Red Balloon<br/>
     <input type="radio" name="color" value="Green Balloon"> Green Balloon<br/>
     <input type="radio" name="color" value="Yellow Balloon"> Yellow Balloon<br/>
     <input type="radio" name="color" value="Blue Balloon"> Blue Balloon<br/>
 
     <br/>
-    <a href="/selectBalloonSize.html">Submit</a>
-</main>
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>

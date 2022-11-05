@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class Balloon {
-    private String name;
-    private String description;
+    String name;
+    String description;
 
     public Balloon(String name, String description) {
         this.name = name;

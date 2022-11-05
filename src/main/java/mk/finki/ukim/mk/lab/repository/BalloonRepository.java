@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public class BalloonRepository {
-    private List<Balloon> balloons = new ArrayList<>(10);
+    List<Balloon> balloons = new ArrayList<>(10);
     public BalloonRepository(){
         this.balloons.add(new Balloon("Blue","Small"));
         this.balloons.add(new Balloon("Blue","Medium"));
