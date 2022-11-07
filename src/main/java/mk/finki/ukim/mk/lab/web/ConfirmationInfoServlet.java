@@ -23,6 +23,11 @@ public class ConfirmationInfoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Attribute NullPointer Check
+        if(req.getSession().getAttribute("color")==null){
+            resp.sendRedirect("");
+            return;
+        }
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable( "clientName", req.getSession().getAttribute("name") );
         context.setVariable( "clientAddress", req.getSession().getAttribute("address") );

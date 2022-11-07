@@ -22,6 +22,11 @@ public class BalloonOrderServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Attribute NullPointer Check
+        if(req.getSession().getAttribute("color")==null){
+            resp.sendRedirect("");
+            return;
+        }
         WebContext context = new WebContext(req,resp, req.getServletContext());
         context.setVariable( "balloonColor", req.getSession().getAttribute("color") );
         context.setVariable( "balloonSize", req.getSession().getAttribute("size") );
