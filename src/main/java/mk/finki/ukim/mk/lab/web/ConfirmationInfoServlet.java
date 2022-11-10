@@ -1,6 +1,7 @@
 package mk.finki.ukim.mk.lab.web;
 
 import mk.finki.ukim.mk.lab.service.BalloonService;
+import mk.finki.ukim.mk.lab.service.OrderService;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 
@@ -15,9 +16,11 @@ import java.io.IOException;
 public class ConfirmationInfoServlet extends HttpServlet {
     private final BalloonService balloonService;
     private final SpringTemplateEngine springTemplateEngine;
+    private final OrderService orderService;
 
-    public ConfirmationInfoServlet(BalloonService balloonService, SpringTemplateEngine springTemplateEngine) {
+    public ConfirmationInfoServlet(BalloonService balloonService,OrderService orderService, SpringTemplateEngine springTemplateEngine) {
         this.balloonService = balloonService;
+        this.orderService = orderService;
         this.springTemplateEngine = springTemplateEngine;
     }
 
@@ -29,6 +32,7 @@ public class ConfirmationInfoServlet extends HttpServlet {
             return;
         }
         WebContext context = new WebContext(req, resp, req.getServletContext());
+        this.orderService.addPendingOrder((String) req.getSession().getAttribute("color"), (String) req.getSession().getAttribute("size"), (String) req.getSession().getAttribute("name"), (String) req.getSession().getAttribute("address"));
         context.setVariable( "clientName", req.getSession().getAttribute("name") );
         context.setVariable( "clientAddress", req.getSession().getAttribute("address") );
         context.setVariable( "clientIP", req.getRemoteAddr() );
