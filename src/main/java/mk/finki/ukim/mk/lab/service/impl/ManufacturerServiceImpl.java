@@ -11,7 +11,7 @@ import java.util.List;
 public class ManufacturerServiceImpl implements ManufacturerService {
     private final ManufacturerRepository manufacturerRepository;
 
-    public ManufacturerServiceImpl(ManufacturerRepository manufacturerRepository){
+    public ManufacturerServiceImpl(ManufacturerRepository manufacturerRepository) {
         this.manufacturerRepository = manufacturerRepository;
     }
 

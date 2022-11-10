@@ -23,9 +23,9 @@ public class BalloonController {
     }
 
     @GetMapping
-    public String getBalloonsPage(@RequestParam(required = false) String error, Model model){
+    public String getBalloonsPage(@RequestParam(required = false) String error, Model model) {
         List<Balloon> balloons = this.balloonService.listAll();
-        model.addAttribute("balloons",balloons);
+        model.addAttribute("balloons", balloons);
         return "listBalloons";
     }
 
@@ -38,8 +38,7 @@ public class BalloonController {
 
     @GetMapping("/edit-form/{id}")
     public String getEditBalloonPage(@PathVariable Long id, Model model) {
-        if ( this.balloonService.findById(id).isPresent() )
-        {
+        if (this.balloonService.findById(id).isPresent()) {
             Balloon balloon = this.balloonService.findById(id).get();
             List<Manufacturer> manufacturers = this.manufacturerService.findAll();
             model.addAttribute("balloon", balloon);
@@ -65,9 +64,8 @@ public class BalloonController {
 
 
     @PostMapping("/add")
-    public String saveBalloon(@RequestParam String name,
-                              @RequestParam String description,
-                              @RequestParam Long manufacturer) {
+    public String saveBalloon(@RequestParam String name, @RequestParam String description, @RequestParam Long manufacturer) {
+        //VO dolniot red vlegva vo exception??!
         this.balloonService.save(name, description, manufacturer);
         return "redirect:/balloons";
     }

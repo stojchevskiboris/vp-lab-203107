@@ -11,16 +11,8 @@ import java.util.Optional;
 
 @Repository
 public class OrderRepository {
-    List<Order> orders = new ArrayList<>(5);
-    Order pedingOrder;
-
-    public OrderRepository() {
-        orders.add(new Order("Blue", "Big", "One", "Two"));
-        orders.add(new Order("Blue", "Big", "One", "Two"));
-        orders.add(new Order("Blue", "Big", "One", "Two"));
-        orders.add(new Order("Blue", "Big", "One", "Two"));
-        orders.add(new Order("Blue", "Big", "One", "Two"));
-    }
+    List<Order> orders = new ArrayList<>(50);
+    Order pendingOrder;
 
     public List<Order> findAll() {
         return orders;
@@ -39,16 +31,16 @@ public class OrderRepository {
 
     public Order addPendingOrder(String balloonColor, String balloonSize, String clientName, String clientAddress) {
         Order order = new Order(balloonColor, balloonSize, clientName, clientAddress);
-        pedingOrder = order;
+        pendingOrder = order;
         return order;
     }
 
     public void removePendingOrder() {
-        pedingOrder = null;
+        pendingOrder = null;
     }
 
     public Order getPendingOrder() {
-        return pedingOrder;
+        return pendingOrder;
     }
 
 

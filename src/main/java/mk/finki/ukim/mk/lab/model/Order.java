@@ -15,7 +15,7 @@ public class Order {
         this.balloonSize = balloonSize;
         this.clientName = clientName;
         this.clientAddress = clientAddress;
-        this.orderId = (long) (Math.random()*1000);
+        this.orderId = (long) (Math.random() * 1000);
     }
 
     public String getBalloonColor() {

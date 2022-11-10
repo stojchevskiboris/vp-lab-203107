@@ -11,26 +11,27 @@ import java.util.Optional;
 @Repository
 public class BalloonRepository {
     List<Balloon> balloons = new ArrayList<>(10);
-    public BalloonRepository(){
-        this.balloons.add(new Balloon("Blue","Small",null));
-        this.balloons.add(new Balloon("Blue","Medium",null));
-        this.balloons.add(new Balloon("Blue","Big",null));
-        this.balloons.add(new Balloon("Red","Small",null));
-        this.balloons.add(new Balloon("Red","Medium",null));
-        this.balloons.add(new Balloon("Red","Extra Big",null));
-        this.balloons.add(new Balloon("Green","Small",null));
-        this.balloons.add(new Balloon("Green","Medium",null));
-        this.balloons.add(new Balloon("Green","Big",null));
-        this.balloons.add(new Balloon("Yellow","Extra Big",null));
+
+    public BalloonRepository() {
+        this.balloons.add(new Balloon("Blue", "Small", null));
+        this.balloons.add(new Balloon("White", "Medium", null));
+        this.balloons.add(new Balloon("Orange", "Big", null));
+        this.balloons.add(new Balloon("Red", "Small", null));
+        this.balloons.add(new Balloon("Brown", "Medium", null));
+        this.balloons.add(new Balloon("Red", "Extra Big", null));
+        this.balloons.add(new Balloon("Black", "Small", null));
+        this.balloons.add(new Balloon("Green", "Medium", null));
+        this.balloons.add(new Balloon("Green", "Big", null));
+        this.balloons.add(new Balloon("Yellow", "Extra Big", null));
     }
 
-    public List<Balloon> findAllBalloons(){
+    public List<Balloon> findAllBalloons() {
         return this.balloons;
     }
 
-    public List<Balloon> findAllByNameOrDescription(String text){
+    public List<Balloon> findAllByNameOrDescription(String text) {
         List<Balloon> foundBalloons = new ArrayList<>();
-        for (Balloon balloon : balloons){
+        for (Balloon balloon : balloons) {
             if (balloon.getName().contains(text) || balloon.getDescription().contains(text))
                 foundBalloons.add(balloon);
         }
@@ -38,10 +39,7 @@ public class BalloonRepository {
     }
 
     public Optional<Balloon> findById(Long id) {
-        return balloons
-                .stream()
-                .filter(r -> r.getId().equals(id))
-                .findFirst();
+        return balloons.stream().filter(r -> r.getId().equals(id)).findFirst();
     }
 
     public Optional<Balloon> save(String name, String description, Manufacturer manufacturer) {

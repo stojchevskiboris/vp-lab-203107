@@ -15,7 +15,8 @@ import java.io.IOException;
 public class BalloonOrderServlet extends HttpServlet {
     private final SpringTemplateEngine springTemplateEngine;
     private final BalloonService balloonService;
-    public BalloonOrderServlet(SpringTemplateEngine springTemplateEngine, BalloonService balloonService){
+
+    public BalloonOrderServlet(SpringTemplateEngine springTemplateEngine, BalloonService balloonService) {
         this.springTemplateEngine = springTemplateEngine;
         this.balloonService = balloonService;
     }
@@ -23,13 +24,13 @@ public class BalloonOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Attribute NullPointer Check
-        if(req.getSession().getAttribute("color")==null){
+        if (req.getSession().getAttribute("color") == null) {
             resp.sendRedirect("");
             return;
         }
-        WebContext context = new WebContext(req,resp, req.getServletContext());
-        context.setVariable( "balloonColor", req.getSession().getAttribute("color") );
-        context.setVariable( "balloonSize", req.getSession().getAttribute("size") );
+        WebContext context = new WebContext(req, resp, req.getServletContext());
+        context.setVariable("balloonColor", req.getSession().getAttribute("color"));
+        context.setVariable("balloonSize", req.getSession().getAttribute("size"));
         this.springTemplateEngine.process("deliveryInfo.html", context, resp.getWriter());
     }
 
