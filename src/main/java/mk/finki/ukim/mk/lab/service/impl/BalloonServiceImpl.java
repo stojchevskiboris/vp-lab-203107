@@ -37,7 +37,7 @@ public class BalloonServiceImpl implements BalloonService {
 
     @Override
     public Optional<Balloon> save(String name, String description, Long manufacturerId) {
-        Manufacturer manufacturer = new ManufacturerRepository().findById(manufacturerId).get();
+        Manufacturer manufacturer = manufacturerRepository.findById(manufacturerId).get();
         return this.balloonRepository.save(name, description, manufacturer);
     }
 

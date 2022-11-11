@@ -17,6 +17,6 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Override
     public List<Manufacturer> findAll() {
-        return new ManufacturerRepository().findAll();
+        return manufacturerRepository.findAll();
     }
 }

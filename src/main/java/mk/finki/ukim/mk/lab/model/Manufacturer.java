@@ -27,4 +27,20 @@ public class Manufacturer {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getAddress() {
+        return address;
+    }
 }

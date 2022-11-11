@@ -65,7 +65,7 @@ public class BalloonController {
 
     @PostMapping("/add")
     public String saveBalloon(@RequestParam String name, @RequestParam String description, @RequestParam Long manufacturer) {
-        //VO dolniot red vlegva vo exception??!
+        //VO dolniot red vlegva vo exception??! - nema takov ID?
         this.balloonService.save(name, description, manufacturer);
         return "redirect:/balloons";
     }
