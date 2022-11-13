@@ -50,5 +50,12 @@ public class OrderServiceImpl implements OrderService {
     public void removePendingOrder() {
         this.orderRepository.removePendingOrder();
     }
+
+    @Override
+    public void removeOrders() {
+        this.orderRepository.removeAllOrders();
+    }
+
+
 }
 

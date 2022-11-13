@@ -11,6 +11,8 @@ import java.util.Optional;
 
 @Repository
 public class OrderRepository {
+
+
     List<Order> orders = new ArrayList<>(50);
     Order pendingOrder;
 
@@ -43,5 +45,11 @@ public class OrderRepository {
         return pendingOrder;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
 
+    public void removeAllOrders() {
+        orders = new ArrayList<>(50);
+    }
 }

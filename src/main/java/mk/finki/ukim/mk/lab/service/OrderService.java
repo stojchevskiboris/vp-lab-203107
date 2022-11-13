@@ -21,4 +21,5 @@ public interface OrderService {
 
     void removePendingOrder();
 
+    void removeOrders();
 }
