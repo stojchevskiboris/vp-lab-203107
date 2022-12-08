@@ -25,7 +25,7 @@ public class OrderController {
     @GetMapping("/add")
     public String postToOrdersPage() {
         Order order = this.orderService.getPendingOrder();
-        this.orderService.save(order.getBalloonColor(), order.getBalloonSize(), order.getClientName(), order.getClientAddress());
+        this.orderService.save(order.getBalloonColor(), order.getBalloonSize(), order.getClientName(), order.getClientName());
         this.orderService.removePendingOrder();
         return "redirect:/orders";
     }

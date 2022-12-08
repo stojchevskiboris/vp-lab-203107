@@ -8,9 +8,7 @@ import java.util.Optional;
 public interface BalloonService {
     List<Balloon> listAll();
     List<Balloon> searchByNameOrDescription(String text);
-
     Optional<Balloon> findById(Long id);
-
     Optional<Balloon> save(String name, String description, Long manufacturerId);
     void delete(Long id);
 }

@@ -44,9 +44,8 @@ public class BalloonController {
             model.addAttribute("balloon", balloon);
             model.addAttribute("manufacturers", manufacturers);
             return "add-balloon";
-
         }
-        return "redirect:/balloons?error=BalloonNotFound";
+        return "redirect:/balloons?error=Balloon_Not_Found";
     }
 
     @GetMapping("/delete/{id}")
